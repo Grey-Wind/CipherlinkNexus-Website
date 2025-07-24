@@ -17,7 +17,7 @@ func GetVersionInfo(c *gin.Context) {
 	data, err := ioutil.ReadFile(versionFile)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "无法读取版本信息文件",
+			"error": "Unable to read the version information file.",
 		})
 		return
 	}
@@ -26,7 +26,7 @@ func GetVersionInfo(c *gin.Context) {
 	var result interface{}
 	if err := json.Unmarshal(data, &result); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "版本信息文件格式错误",
+			"error": "Incorrect file format of the version information file.",
 		})
 		return
 	}
